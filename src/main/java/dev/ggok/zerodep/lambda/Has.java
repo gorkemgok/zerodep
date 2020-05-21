@@ -21,7 +21,7 @@ public final class Has {
     }
 
     public <T> boolean noElement(Collection<T> collection) {
-        return !collection.isEmpty();
+        return collection.isEmpty();
     }
 
     public <T> boolean oneElement(Collection<T> collection) {

@@ -1,6 +1,59 @@
-zerodep library provides various utilities make developer's life easier with ZERO 3rd party (production) dependency.
+[![Maven Central](https://img.shields.io/maven-central/v/dev.ggok.zerodep/zerodep.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22dev.ggok.zerodep%22%20AND%20a:%22zerodep%22)
 
-### `TimeUnitConstants` and `DataSizeConstants` 
+# Zerodep Utility Library
+
+Zerodep provides various utilities make developer's life easier with **ZERO** 3rd party (production) dependency.
+
+The main goal of this library is to make the code **more readable**. 
+
+## Install
+Maven:
+```xml
+<dependency>
+  <groupId>dev.ggok.zerodep</groupId>
+  <artifactId>zerodep</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+Gradle:
+```groovy
+implementation 'dev.ggok.zerodep:zerodep:1.0.0'
+```
+## Ugly class
+
+Ugly class is a utility class and has 4 public fields which are `is`, `not`, `has` and `to`.
+These are references to `Is`, `Not`, `Has` and `To` classes of which methods are meant to be used mostly as a method reference in lambda expressions.
+
+Without Zerodep:
+```java
+collection.stream()
+    .filter(Objects::nonNull)
+    .map(Object::toString)
+```
+
+With Zerodep:
+```java
+Stream.of("")
+    .filter(not::nul)
+    .map(to::string)
+```
+
+The reason of name "Ugly" is to force developer to statically import the fields in the class.
+
+Instead of:
+```java
+Stream.of(null).anyMatch(Ugly.is::empty);
+``` 
+Use:
+```java
+import static dev.ggok.zerodep.lambda.Ugly.*;
+...
+Stream.of(null).anyMatch(is::empty);
+``` 
+
+
+
+## TimeUnitConstants and DataSizeConstants 
 These classes contain constant to convert time and data units.
 
 ```java

@@ -4,7 +4,7 @@
 
     <groupId>dev.ggok.zerodep</groupId>
     <artifactId>zerodep</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>Zerodep</name>
     <description>
         Zerodep is a library with zero dependency to make code more readable and ease developers life.
@@ -30,7 +30,7 @@
         <connection>scm:git:git://github.com/gorkemgok/zerodep.git</connection>
         <developerConnection>scm:git:ssh://github.com:gorkemgok/zerodep.git</developerConnection>
         <url>http://github.com/gorkemgok/gorkemgok/tree/master</url>
-      <tag>zerodep-1.0.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <distributionManagement>

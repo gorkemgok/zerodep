@@ -12,16 +12,16 @@ Maven:
 <dependency>
   <groupId>dev.ggok.zerodep</groupId>
   <artifactId>zerodep</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 Gradle:
 ```groovy
-implementation 'dev.ggok.zerodep:zerodep:1.0.0'
+implementation 'dev.ggok.zerodep:zerodep:1.0.1'
 ```
 ## Ugly class
 
-Ugly class is a utility class and has 4 public fields which are `is`, `not`, `has` and `to`.
+Ugly class is a utility class that has 4 public fields which are `is`, `not`, `has` and `to`.
 These are references to `Is`, `Not`, `Has` and `To` classes of which methods are meant to be used mostly as a method reference in lambda expressions.
 
 Without Zerodep:
@@ -51,9 +51,19 @@ import static dev.ggok.zerodep.lambda.Ugly.*;
 Stream.of(null).anyMatch(is::empty);
 ``` 
 
+### Methods
+|Is                 | Not               | Has                | To            |
+|---                |---                |---                 |---            |
+|`is::nul`          |`not::null`        |`has::nul`          |`to::string`   |
+|`is::empty`        |`not::empty`       |`has::dublicate`    |`to::integer`  |
+|`is::blank`        |`not::blank`       |`has::oneElement`   |`to::integer`  |
+|`is::decimal`      |`not::decimal`     |`has::anyElement`   |`to::lng`      |
+|`is::numeric`      |`not::numeric`     |`has::noElement`    |               |
+|`is::alphanumeric` |`not::alphanumeric`|                    |               |
+|`is::zero`         |`not::zero`        |                    |               |
+|`is::one`          |`not::one`         |                    |               |
 
-
-## TimeUnitConstants and DataSizeConstants 
+## TimeUnitConstants and DataSizeConstants classes 
 These classes contain constant to convert time and data units.
 
 ```java

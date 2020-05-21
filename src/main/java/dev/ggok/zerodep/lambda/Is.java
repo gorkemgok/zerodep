@@ -3,6 +3,9 @@ package dev.ggok.zerodep.lambda;
 import java.math.BigDecimal;
 import java.util.Collection;
 
+import static dev.ggok.zerodep.internal.Constants.*;
+import static dev.ggok.zerodep.lambda.Ugly.not;
+
 /**
  * This utility class provides human readable one parameter methods to use as method reference.
  * All methods return {@code true} or {@code false} values which are answers to "is" questions.
@@ -12,7 +15,32 @@ import java.util.Collection;
  */
 public final class Is {
 
-    Is() {}
+    Is() {
+    }
+
+    /**
+     * @param value Non null {@code String}
+     * @return {@code true} if String is not empty and contains only numeric characters and optionally only one "." between numbers, {@code false} otherwise.
+     */
+    public boolean decimal(String value) {
+        return not.empty(value) && value.matches(DECIMAL_REGEX);
+    }
+
+    /**
+     * @param value Non null {@code String}
+     * @return {@code true} if String is not empty and contains only numeric characters, {@code false} otherwise.
+     */
+    public boolean numeric(String value) {
+        return not.empty(value) && value.matches(NUMERIC_REGEX);
+    }
+
+    /**
+     * @param value Non null {@code String}
+     * @return {@code true} if String is not null and contains only alphanumeric characters, {@code false} otherwise.
+     */
+    public boolean alphanumeric(String value) {
+        return value != null && value.matches(ALPHA_NUMERIC_REGEX);
+    }
 
     /**
      * @param value A {@code String}
@@ -85,7 +113,7 @@ public final class Is {
      * @since 1.0
      */
     public boolean one(int value) {
-        return value == 0;
+        return value == 1;
     }
 
     /**
@@ -103,7 +131,7 @@ public final class Is {
      * @since 1.0
      */
     public boolean one(long value) {
-        return value == 0L;
+        return value == 1L;
     }
 
     /**
@@ -121,7 +149,7 @@ public final class Is {
      * @since 1.0
      */
     public boolean one(double value) {
-        return value == .0;
+        return value == 1.0;
     }
 
     /**
@@ -139,7 +167,7 @@ public final class Is {
      * @since 1.0
      */
     public boolean one(float value) {
-        return value == 0f;
+        return value == 1f;
     }
 
     /**
@@ -157,6 +185,6 @@ public final class Is {
      * @since 1.0
      */
     public boolean one(short value) {
-        return value == 0;
+        return value == 1;
     }
 }

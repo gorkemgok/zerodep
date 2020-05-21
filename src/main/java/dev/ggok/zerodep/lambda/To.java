@@ -28,7 +28,7 @@ public final class To {
      * @since 1.0
      */
     public int integer(String value) {
-        return Integer.valueOf(value);
+        return Integer.parseInt(value);
     }
 
     /**
@@ -38,6 +38,6 @@ public final class To {
      * @since 1.0
      */
     public long lng(String value) {
-        return Long.valueOf(value);
+        return Long.parseLong(value);
     }
 }

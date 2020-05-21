@@ -1,5 +1,6 @@
-package dev.ggok.zerodep;
+package dev.ggok.zerodep.constant;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,12 +8,18 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
+import static dev.ggok.zerodep.TestUtils.assertUtilClass;
 import static dev.ggok.zerodep.constant.TimeUnitConstants.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TimeUnitConstantsTest {
 
     private static final long CONS = 3;
+
+    @Test
+    void initialize_ExpectUnsupportedOperationException() {
+        assertUtilClass(TimeUnitConstants.class);
+    }
 
     @ParameterizedTest
     @MethodSource("provideParameters")

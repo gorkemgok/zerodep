@@ -19,6 +19,30 @@ public final class Not {
     }
 
     /**
+     * @param value Non null {@code String}
+     * @return {@code true} if String is empty or contains non-numeric characters except only one optional "." between numbers, {@code false} otherwise.
+     */
+    public boolean decimal(String value) {
+        return !is.decimal(value);
+    }
+
+    /**
+     * @param value Non null {@code String}
+     * @return {@code true} if String is empty or contains non-numeric characters, {@code false} otherwise.
+     */
+    public boolean numeric(String value) {
+        return !is.numeric(value);
+    }
+
+    /**
+     * @param value Non null {@code String}
+     * @return {@code true} if String is null or contains characters other than alphanumeric characters, {@code false} otherwise.
+     */
+    public boolean alphanumeric(String value) {
+        return !is.alphanumeric(value);
+    }
+
+    /**
      * @param value A {@code String}
      * @return {@code false} if string is not {@code null} and empty (""), {@code true} otherwise
      * @since 1.0
@@ -89,7 +113,7 @@ public final class Not {
      * @since 1.0
      */
     public boolean one(int value) {
-        return value != 0;
+        return value != 1;
     }
 
     /**
@@ -107,7 +131,7 @@ public final class Not {
      * @since 1.0
      */
     public boolean one(long value) {
-        return value != 0L;
+        return value != 1L;
     }
 
     /**
@@ -125,7 +149,7 @@ public final class Not {
      * @since 1.0
      */
     public boolean one(double value) {
-        return value != .0;
+        return value != 1.0;
     }
 
     /**
@@ -143,7 +167,7 @@ public final class Not {
      * @since 1.0
      */
     public boolean one(float value) {
-        return value != 0f;
+        return value != 1f;
     }
 
     /**
@@ -161,6 +185,6 @@ public final class Not {
      * @since 1.0
      */
     public boolean one(short value) {
-        return value != 0;
+        return value != 1;
     }
 }

@@ -21,6 +21,7 @@ public final class Is {
     /**
      * @param value Non null {@code String}
      * @return {@code true} if String is not empty and contains only numeric characters and optionally only one "." between numbers, {@code false} otherwise.
+     * @since 1.1
      */
     public boolean decimal(String value) {
         return not.empty(value) && value.matches(DECIMAL_REGEX);
@@ -29,6 +30,7 @@ public final class Is {
     /**
      * @param value Non null {@code String}
      * @return {@code true} if String is not empty and contains only numeric characters, {@code false} otherwise.
+     * @since 1.1
      */
     public boolean numeric(String value) {
         return not.empty(value) && value.matches(NUMERIC_REGEX);
@@ -37,6 +39,7 @@ public final class Is {
     /**
      * @param value Non null {@code String}
      * @return {@code true} if String is not null and contains only alphanumeric characters, {@code false} otherwise.
+     * @since 1.1
      */
     public boolean alphanumeric(String value) {
         return value != null && value.matches(ALPHA_NUMERIC_REGEX);

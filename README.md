@@ -33,7 +33,7 @@ collection.stream()
 
 With Zerodep:
 ```java
-Stream.of("")
+collection.stream()
     .filter(not::nul)
     .map(to::string)
 ```
@@ -54,7 +54,7 @@ Stream.of(null).anyMatch(is::empty);
 ### Methods
 |Is                 | Not               | Has                | To            |
 |---                |---                |---                 |---            |
-|`is::nul`          |`not::null`        |`has::nul`          |`to::string`   |
+|`is::nul`          |`not::nul`         |`has::nul`          |`to::string`   |
 |`is::empty`        |`not::empty`       |`has::dublicate`    |`to::integer`  |
 |`is::blank`        |`not::blank`       |`has::oneElement`   |`to::integer`  |
 |`is::decimal`      |`not::decimal`     |`has::anyElement`   |`to::lng`      |
